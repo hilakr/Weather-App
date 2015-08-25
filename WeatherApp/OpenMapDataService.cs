@@ -78,6 +78,7 @@ namespace WeatherApp
                     //Insert all the Temperature parameters 
                     wData.Temp = new Temperature();
                     wData.Temp.Value = double.Parse(data.TempValue);
+                    //Kelvin unit becomes C
                     wData.Temp.Value -= 272.15;
                     //Insert all the wind parameters 
                     wData.Wind = new Wind();
