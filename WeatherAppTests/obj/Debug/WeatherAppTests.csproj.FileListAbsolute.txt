@@ -1,0 +1,10 @@
+C:\Users\User\Documents\Visual Studio 2013\Projects\WeatherApp\WeatherAppTests\bin\Debug\WeatherAppTests.dll
+C:\Users\User\Documents\Visual Studio 2013\Projects\WeatherApp\WeatherAppTests\bin\Debug\WeatherAppTests.pdb
+C:\Users\User\Documents\Visual Studio 2013\Projects\WeatherApp\WeatherAppTests\bin\Debug\WeatherApp.exe
+C:\Users\User\Documents\Visual Studio 2013\Projects\WeatherApp\WeatherAppTests\bin\Debug\MahApps.Metro.dll
+C:\Users\User\Documents\Visual Studio 2013\Projects\WeatherApp\WeatherAppTests\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\User\Documents\Visual Studio 2013\Projects\WeatherApp\WeatherAppTests\bin\Debug\WeatherApp.pdb
+C:\Users\User\Documents\Visual Studio 2013\Projects\WeatherApp\WeatherAppTests\bin\Debug\MahApps.Metro.xml
+C:\Users\User\Documents\Visual Studio 2013\Projects\WeatherApp\WeatherAppTests\obj\Debug\WeatherAppTests.csprojResolveAssemblyReference.cache
+C:\Users\User\Documents\Visual Studio 2013\Projects\WeatherApp\WeatherAppTests\obj\Debug\WeatherAppTests.dll
+C:\Users\User\Documents\Visual Studio 2013\Projects\WeatherApp\WeatherAppTests\obj\Debug\WeatherAppTests.pdb

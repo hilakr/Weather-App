@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace WeatherApp
 {
     /// <summary>
-    /// This class decribes City and the City's parameters that provided by the web.
+    /// This class decribes the city's parameters that provided by the web.
     /// </summary>
     public class City
     {

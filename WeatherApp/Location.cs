@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace WeatherApp
 {
     /// <summary>
-    /// This class describes Location ,which the user provides to the Weather app.
+    /// This class describes the location ,it is the city name that the user provides to the Weather app.
     /// </summary>
     public class Location
     {

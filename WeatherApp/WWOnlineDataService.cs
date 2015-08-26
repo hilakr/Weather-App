@@ -9,9 +9,10 @@ using System.Xml.Linq;
 namespace WeatherApp
 {
     /// <summary>
-    /// This Class WWOnlineDataService works with the second web service :http://api.worldweatheronline.com
+    /// This is the second web service I choose .
+    /// This Class WWOnlineDataService works with web service :http://api.worldweatheronline.com
     /// This Class is singelton.
-    /// The Class is responsible to send http request and return the response in wData object.
+    /// The Class is responsible to send http request and return the response in wData instance.
     /// </summary>
     class WWOnlineDataService : IWeatherDataService
     {
@@ -26,14 +27,16 @@ namespace WeatherApp
         }
         /// <summary>
         /// This method is responsible to send http request to the provided URL and get the reponse to XML,
-        /// The XML will provide all the detalis we need to build Weather Data object and return it.
+        /// The XML will provide all the detalis we need to build Weather Data instance and return it.
         /// </summary>   
         public WeatherData GetWeatherData(Location location)
         {
-            //wData is the object that holds the weather info.
+            //wData is the instance that holds the weather info.
             var wData = new WeatherData();
           
+            //xdoc is var that holds the xml elements and parse them
             XDocument xdoc;
+
             //api var holds the http response.
             var api = string.Format("http://api.worldweatheronline.com/free/v2/weather.ashx?key=dbc688a2aa9e77e11005ceb43ab37&q={0}&format=xml", location.Name);
             //Parse the XML
@@ -60,7 +63,7 @@ namespace WeatherApp
 
 
                     };
-                //Insert the relevant parameters to wData object.
+                //Insert the relevant parameters to wData instance.
                 foreach (var data in list)
                 {
                     wData.City = new City();
@@ -97,7 +100,7 @@ namespace WeatherApp
                 throw new WeatherDataServiceException("Parsing Exception");
             }
 
-            //return the wData object which now is updated .
+            //return the wData instance which now is updated .
             return wData;
         }
     }

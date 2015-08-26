@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace WeatherApp
 {
     /// <summary>
-    /// This class decribes Temperature and the Temperature's parameters that provided by the web.
+    /// This class decribes the temperature's parameters that provided by the web service.
     /// </summary>
     public class Temperature
     {

@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace WeatherApp
 {
+    /// <summary>
+    /// This class is the WeatherDataServiceFactory which enables to add more web services .
+    /// </summary>
    
     public static class WeatherDataServiceFactory
     {

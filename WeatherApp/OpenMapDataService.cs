@@ -11,7 +11,7 @@ namespace WeatherApp
     /// <summary>
     /// This Class OpenMapDataService works with the web service :http://api.openweathermap.org.
     /// This Class is singelton.
-    /// The Class is responsible to send http request and return the response in wData object.
+    /// The Class is responsible to send http request and return the response in wData instance.
     /// </summary>
     public class OpenMapDataService : IWeatherDataService
     {
@@ -26,19 +26,23 @@ namespace WeatherApp
         }
         /// <summary>
         /// This method is responsible to send http request to the web service and get the reponse to XML,
-        /// The XML will provide all the info we need to build wData object and return this object.
+        /// The XML will provide all the info we need to build wData instance and return it.
         /// </summary>
         public WeatherData GetWeatherData(Location location)
         {
+            //xdoc is var that holds the xml elements and parse them
             XDocument xdoc;
-            //wData is the object that holds the weather info.
+            
+            //wData is the instance that holds the weather info.
             var wData = new WeatherData();
+            
             //api var holds the http response.
             var api = string.Format("http://api.openweathermap.org/data/2.5/weather?q={0}&mode=xml", location.Name);
 
-            //Parse the xdoc .
             try
             {
+                //Parse the xdoc and get the relevant info.
+  
                 xdoc = XDocument.Load(api);
 
                 var list = from item in xdoc.Descendants("current")
@@ -64,10 +68,11 @@ namespace WeatherApp
                         LastUpdate = item.Element("lastupdate").Attribute("value").Value
 
                     };
-                //Insert the relevant parameters to wData object.
+  
+                //Insert the relevant parameters to wData instance.
                 foreach (var data in list)
                 {
-                    //Insert all the City parameters 
+                    //Insert the city parameters 
                     wData.City = new City();
                     wData.City.Name = data.Name;
                     wData.City.Country = data.Country;
@@ -75,21 +80,26 @@ namespace WeatherApp
                     wData.City.Coords.Lon = double.Parse(data.CoordLon);
                     wData.City.Sun.Rise = DateTime.Parse(data.SunRise);
                     wData.City.Sun.Set = DateTime.Parse(data.SunSet);
-                    //Insert all the Temperature parameters 
+                    
+                    //Insert the temperature parameters 
                     wData.Temp = new Temperature();
                     wData.Temp.Value = double.Parse(data.TempValue);
+                    
                     //Kelvin unit becomes C
                     wData.Temp.Value -= 272.15;
-                    //Insert all the wind parameters 
+                    
+                    //Insert the wind parameters 
                     wData.Wind = new Wind();
                     wData.Wind.Speed = new Speed();
                     wData.Wind.Speed.Value = double.Parse(data.WindSpeedValue);
                     wData.Wind.Speed.Name = data.WindSpeedText;
 
+                    //Insert the weather conclusion with the suitable icon.
                     wData.Weather = new Weather();
                     wData.Weather.Icon = "http://openweathermap.org/img/w/" + data.IconName + ".png";
                     wData.Weather.Value = data.IconText;
 
+                    //Insert the last update time
                     wData.LastUpdateTime = DateTime.Parse(data.LastUpdate);
                 }
             }
@@ -103,7 +113,7 @@ namespace WeatherApp
 
                 throw new WeatherDataServiceException("Parsing Exception");
             }
-            //return the wData object.
+            //return the wData instance.
             return wData;
         }
     }

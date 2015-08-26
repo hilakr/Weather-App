@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace WeatherApp
 {
     /// <summary>
-    /// This class describes the Weather Data that summarizes all the info provided from web.  
+    /// This class describes the WeatherData that summarizes the weather data we get from the web service.  
     /// </summary>
     public class WeatherData
     {
